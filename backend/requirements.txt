@@ -1,0 +1,25 @@
+# Direct dependencies only — pip resolves the rest. Compiled packages use flexible
+# lower bounds so the right wheel is picked for the deploy platform (Linux/py3.11).
+
+# Web
+fastapi>=0.115,<0.116
+uvicorn[standard]>=0.34,<0.35
+httpx>=0.28,<0.29
+
+# Auth
+google-auth>=2.30
+requests>=2.31
+PyJWT>=2.9
+cryptography>=42  # encrypts Instagram tokens at rest (app/crypto.py)
+
+# Database (with connection pool — avoids a fresh TLS handshake per query)
+psycopg[binary,pool]>=3.1,<4
+
+# Media / rendering
+pillow>=10.4
+numpy>=1.26
+cloudinary>=1.40
+edge-tts>=7.0
+
+# Config
+python-dotenv>=1.0
