@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interview guide for PostPilot, an AI-powered social content automation platform." />
+  <title>PostPilot - Interview & CV Guide</title>
+  <style>
+    :root {
+      --ink: #e9eaf4;
+      --muted: #aeb1c4;
+      --canvas: #0b0c14;
+      --panel: #151725;
+      --panel-soft: #1b1e30;
+      --line: rgba(230, 232, 255, .13);
+      --violet: #9d7bff;
+      --pink: #ff78b7;
+      --green: #59d4aa;
+      --gold: #f5c96c;
+      --danger: #ff897d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+      background:
+        radial-gradient(circle at 9% -5%, rgba(117, 77, 229, .28), transparent 28rem),
+        radial-gradient(circle at 95% 2%, rgba(250, 103, 173, .16), transparent 25rem),
+        var(--canvas);
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow { color: var(--violet); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line); background: rgba(11, 12, 20, .78);
+    }
+    .topbar .shell { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: .9rem; font-weight: 800; letter-spacing: .01em; }
+    .brand-mark { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 9px; background: linear-gradient(135deg, var(--violet), var(--pink)); color: white; box-shadow: 0 7px 24px rgba(157,123,255,.36); }
+    nav { display: flex; align-items: center; gap: 17px; color: var(--muted); font-size: .8rem; }
+    nav a:hover { color: white; }
+    .hero { padding: 84px 0 48px; position: relative; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 50px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 790px; margin: 12px 0 20px; font-size: clamp(2.55rem, 6vw, 5.2rem); line-height: .98; letter-spacing: -.065em; }
+    h1 span { background: linear-gradient(100deg, #cab9ff, #ffb2d5 82%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lede { max-width: 670px; color: #d4d6e4; font-size: 1.09rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; color: #d9daea; background: rgba(255,255,255,.035); font-size: .76rem; font-weight: 650; }
+    .pill.ai { color: #d2c8ff; border-color: rgba(157,123,255,.4); background: rgba(157,123,255,.12); }
+    .mock { min-height: 405px; padding: 15px; border: 1px solid rgba(181,165,255,.33); border-radius: 24px; background: linear-gradient(150deg, rgba(30,33,54,.97), rgba(16,17,29,.9)); box-shadow: 0 24px 90px rgba(0,0,0,.38); transform: rotate(1.5deg); }
+    .windowbar { display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 2px 9px; border-bottom: 1px solid var(--line); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #ff7777; } .dot:nth-child(2) { background: #f7cf72; } .dot:nth-child(3) { background: #58d7a6; }
+    .mock-title { margin-left: 8px; color: var(--muted); font-size: .69rem; }
+    .preview { display: grid; grid-template-columns: .85fr 1.15fr; gap: 12px; margin-top: 14px; }
+    .preview-panel { min-height: 319px; padding: 14px; border: 1px solid var(--line); border-radius: 15px; background: rgba(5,6,12,.4); }
+    .tiny-label { color: var(--muted); font-size: .64rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .active-niche { display: flex; align-items: center; gap: 9px; margin: 14px 0 20px; padding: 9px; border: 1px solid rgba(157,123,255,.28); border-radius: 10px; background: rgba(157,123,255,.1); font-size: .72rem; }
+    .active-niche strong { display: block; font-size: .78rem; }
+    .content-pillar { margin: 12px 0; font-size: .68rem; }
+    .bar { height: 5px; margin-top: 5px; overflow: hidden; border-radius: 10px; background: #303247; }
+    .bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--violet), var(--pink)); }
+    .post-card { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #15172a; }
+    .generated-art { height: 178px; position: relative; padding: 17px; overflow: hidden; background: linear-gradient(145deg, #7537a8, #16152e 58%, #207d8d); }
+    .generated-art::after { content: ""; position: absolute; right: -18px; bottom: -20px; width: 150px; height: 150px; border: 20px solid rgba(255,255,255,.18); border-radius: 50%; }
+    .generated-art small { position: relative; z-index: 1; color: #decfff; font-size: .62rem; font-weight: 800; letter-spacing: .1em; }
+    .generated-art b { position: relative; z-index: 1; display: block; max-width: 190px; margin-top: 34px; font-size: 1.17rem; line-height: 1.08; letter-spacing: -.04em; }
+    .post-copy { padding: 12px; color: #c6c8d8; font-size: .68rem; }
+    .post-copy em { display: block; margin-top: 9px; color: var(--violet); font-style: normal; }
+    .mini-actions { display: flex; gap: 6px; margin-top: 11px; }
+    .mini-button { flex: 1; padding: 5px 2px; border-radius: 6px; color: #d8d9e6; text-align: center; font-size: .59rem; font-weight: 700; background: #2a2d43; }
+    .mini-button.primary { color: white; background: var(--violet); }
+    main { padding-bottom: 72px; }
+    section { scroll-margin-top: 86px; }
+    .section { padding: 42px 0; }
+    .section-head { max-width: 770px; margin-bottom: 24px; }
+    h2 { margin: 6px 0 10px; font-size: clamp(1.65rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -.045em; }
+    h3 { margin-bottom: 7px; font-size: 1rem; line-height: 1.28; }
+    .section-head p, .muted { color: var(--muted); }
+    .card { border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(27,30,48,.84), rgba(20,22,36,.76)); }
+    .answer { padding: 24px; border-left: 3px solid var(--violet); }
+    .answer p { margin: 0; color: #e3e4ef; font-size: 1.03rem; }
+    .answer b { color: #d9ceff; }
+    .feature-grid, .decision-grid, .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .feature, .decision, .stack { padding: 19px; }
+    .feature-icon { width: 30px; height: 30px; display: grid; place-items: center; margin-bottom: 15px; border-radius: 9px; color: #e4dcff; background: rgba(157,123,255,.15); font-size: .9rem; }
+    .feature p, .decision p, .stack p { margin-bottom: 0; color: var(--muted); font-size: .87rem; }
+    .architecture { padding: 23px; overflow-x: auto; }
+    .flow { min-width: 760px; display: grid; grid-template-columns: 1.05fr 28px 1.1fr 28px 1.1fr 28px 1.1fr; align-items: stretch; }
+    .node { min-height: 150px; padding: 17px; border: 1px solid var(--line); border-radius: 14px; background: rgba(7,8,14,.36); }
+    .node strong { display: block; margin-bottom: 9px; font-size: .86rem; }
+    .node ul { margin: 0; padding-left: 17px; color: var(--muted); font-size: .75rem; }
+    .node li + li { margin-top: 4px; }
+    .arrow { display: grid; place-items: center; color: var(--violet); font-size: 1.25rem; }
+    .pipeline { counter-reset: step; display: grid; grid-template-columns: repeat(5, 1fr); gap: 11px; }
+    .pipeline-item { min-height: 170px; position: relative; padding: 18px; border: 1px solid var(--line); border-radius: 15px; background: rgba(17,19,31,.76); }
+    .pipeline-item::before { counter-increment: step; content: "0" counter(step); display: block; margin-bottom: 19px; color: var(--violet); font-size: .72rem; font-weight: 900; letter-spacing: .08em; }
+    .pipeline-item h3 { font-size: .89rem; }
+    .pipeline-item p { margin-bottom: 0; color: var(--muted); font-size: .76rem; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .interview-card { padding: 23px; }
+    .interview-card .question { color: var(--gold); font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .interview-card p:last-child { margin-bottom: 0; color: #d4d6e3; }
+    .resume { padding: 25px; }
+    .resume-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; padding-bottom: 13px; margin-bottom: 17px; border-bottom: 1px solid var(--line); }
+    .resume-title b { font-size: 1.08rem; }
+    .resume-title span { color: var(--muted); font-size: .82rem; }
+    .resume ul { margin: 0; padding-left: 20px; }
+    .resume li { padding-left: 5px; color: #d9dae6; }
+    .resume li + li { margin-top: 10px; }
+    .keyword-group { padding: 19px; }
+    .keyword-group + .keyword-group { border-top: 1px solid var(--line); }
+    .keyword-group h3 { margin-bottom: 10px; }
+    .keyword-group p { margin-bottom: 0; color: #d5d6e2; font-size: .9rem; }
+    code { padding: 2px 5px; border-radius: 4px; color: #e7e1ff; background: rgba(157,123,255,.14); font: .79em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+    .fact { padding: 17px; }
+    .fact b { display: block; margin-bottom: 4px; color: var(--pink); font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; }
+    .fact span { color: #d9dbe7; font-size: .88rem; }
+    .footer { padding: 27px 0 50px; color: var(--muted); font-size: .8rem; text-align: center; }
+    .print-note { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .72rem; cursor: pointer; background: transparent; }
+    .print-note:hover { color: white; border-color: rgba(255,255,255,.36); }
+    @media (max-width: 900px) {
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .hero { padding-top: 60px; }
+      .mock { max-width: 560px; margin: 0 auto; }
+      .feature-grid, .decision-grid { grid-template-columns: 1fr 1fr; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      .pipeline { grid-template-columns: 1fr 1fr; }
+      .facts { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1160px); }
+      nav { display: none; }
+      .hero { padding-top: 51px; }
+      .feature-grid, .decision-grid, .stack-grid, .pipeline, .facts { grid-template-columns: 1fr; }
+      .mock { transform: none; }
+    }
+    @media print {
+      body { color: #1c1d24; background: white; font-size: 10.5pt; }
+      .topbar, .mock, .print-note { display: none; }
+      .hero { padding: 28px 0 15px; } .section { padding: 17px 0; }
+      .card, .node, .pipeline-item { color: #1c1d24; border-color: #c7c9d4; background: white; }
+      .section-head p, .muted, .feature p, .decision p, .stack p, .pipeline-item p, .node ul { color: #484b58; }
+      .feature-grid, .decision-grid, .stack-grid { grid-template-columns: repeat(3, 1fr); }
+      .pipeline { grid-template-columns: repeat(5, 1fr); }
+      .split { grid-template-columns: 1fr 1fr; }
+      .facts { grid-template-columns: repeat(4, 1fr); }
+      h1 { font-size: 36pt; } h2 { font-size: 21pt; }
+      .shell { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="#overview"><span class="brand-mark">✦</span> PostPilot <span style="color:var(--muted);font-weight:600">/ Interview Guide</span></a>
+      <nav aria-label="Guide sections">
+        <a href="#architecture">Architecture</a>
+        <a href="#ai-pipeline">AI pipeline</a>
+        <a href="#interview">Interview answers</a>
+        <a href="#cv">CV entry</a>
+      </nav>
+      <button class="print-note" onclick="window.print()" type="button">Print / save PDF</button>
+    </div>
+  </header>
+
+  <main id="overview">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow">AI project - full-stack product</div>
+          <h1>PostPilot is an <span>AI-powered content studio</span> for Instagram.</h1>
+          <p class="lede">It lets a creator generate branded social posts and Reels, review the result, and publish approved media through Instagram’s official API - all from one multi-tenant dashboard.</p>
+          <div class="hero-meta" aria-label="Project technology highlights">
+            <span class="pill ai">Generative AI</span><span class="pill">React + Vite</span><span class="pill">FastAPI</span><span class="pill">PostgreSQL / SQLite</span><span class="pill">ffmpeg + Pillow</span><span class="pill">Docker</span>
+          </div>
+        </div>
+        <div class="mock" aria-label="Illustrative PostPilot dashboard">
+          <div class="windowbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="mock-title">postpilot.app / dashboard</span></div>
+          <div class="preview">
+            <div class="preview-panel">
+              <span class="tiny-label">Workspace</span>
+              <div class="active-niche"><span style="font-size:1.35rem">✨</span><span><span class="tiny-label">Active niche</span><strong>Creator education</strong></span></div>
+              <span class="tiny-label">Content pillars</span>
+              <div class="content-pillar">Quick lessons <div class="bar"><i style="width:86%"></i></div></div>
+              <div class="content-pillar">Behind the scenes <div class="bar"><i style="width:56%"></i></div></div>
+              <div class="content-pillar">Audience prompts <div class="bar"><i style="width:68%"></i></div></div>
+              <div style="margin-top:28px;padding:9px;border:1px solid rgba(89,212,170,.34);border-radius:8px;color:#8fe8c8;font-size:.68rem">● AI providers available</div>
+            </div>
+            <div class="preview-panel">
+              <span class="tiny-label">Pending review</span>
+              <div class="post-card" style="margin-top:10px">
+                <div class="generated-art"><small>IDEA TO ACTION</small><b>Make content<br>that earns<br>attention.</b></div>
+                <div class="post-copy">A clear idea, strong visual hierarchy, and a useful takeaway make every post easier to remember.<em>#creator #contentstrategy #buildinpublic</em><div class="mini-actions"><span class="mini-button">Regenerate</span><span class="mini-button primary">Approve</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">30-second answer</div><h2>How to introduce this project in an interview</h2></div>
+        <div class="card answer">
+          <p>“<b>PostPilot is a full-stack AI content automation platform for Instagram.</b> I built it to reduce the repetitive work behind consistent social media publishing. A user selects a niche or topic, and the backend generates structured content, branded visual posts, captions, hashtags, and optionally short Reels. The React dashboard keeps a human in the loop for review, editing, regeneration, and approval. For publishing, it uses Google sign-in, per-user data isolation, encrypted Instagram credentials, Cloudinary-hosted media, and the official Instagram API. The main engineering challenge was making generative output reliable, so I used provider fallbacks, structured JSON validation, template-based rendering, background jobs, and rate limits rather than relying on a single model response.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">Product perspective</div><h2>The problem and the solution</h2><p>Use this framing when an interviewer asks why you built it or what user need it serves.</p></div>
+        <div class="split">
+          <article class="card feature"><div class="feature-icon">01</div><h3>Problem</h3><p>Small teams and creators must repeatedly find ideas, write on-brand copy, design assets, prepare hashtags, edit short videos, and remember a posting schedule. Moving between separate tools makes the workflow slow and inconsistent.</p></article>
+          <article class="card feature"><div class="feature-icon">02</div><h3>Solution</h3><p>PostPilot centralizes the workflow: it turns a topic into reviewable post or Reel assets, applies the user’s niche and brand settings, tracks content status, and supports scheduled publishing when the creator is ready to automate.</p></article>
+        </div>
+        <div class="feature-grid" style="margin-top:15px">
+          <article class="card feature"><div class="feature-icon">✦</div><h3>AI generation</h3><p>Generates captions, hashtags, structured lists, comparisons, and visual prompts with configurable model providers and safe fallbacks.</p></article>
+          <article class="card feature"><div class="feature-icon">▦</div><h3>Branded creative system</h3><p>Renders many post layouts with custom fonts, colors, overlays, live previews, and consistent visual identity.</p></article>
+          <article class="card feature"><div class="feature-icon">▶</div><h3>Reels pipeline</h3><p>Builds vertical videos with AI scripts, narration, word-timed captions, transitions, and procedurally generated music beds.</p></article>
+          <article class="card feature"><div class="feature-icon">✓</div><h3>Human review workflow</h3><p>Keeps generation separate from publication: users can edit, approve, reject, regenerate, download, or copy copywriting before a post goes live.</p></article>
+          <article class="card feature"><div class="feature-icon">◫</div><h3>Multi-tenant accounts</h3><p>Scopes posts, settings, automation mode, and Instagram connections to the authenticated user rather than exposing one shared workspace.</p></article>
+          <article class="card feature"><div class="feature-icon">↗</div><h3>Official publishing path</h3><p>Connects professional Instagram accounts through OAuth and publishes public image or video URLs via Meta’s supported content-publishing API.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">System design</div><h2>Architecture at a glance</h2><p>The system separates interactive UI work, API and orchestration, media rendering, and durable storage so the expensive generation work does not block the dashboard.</p></div>
+        <div class="card architecture">
+          <div class="flow">
+            <div class="node"><strong>React web app</strong><ul><li>Vite single-page app</li><li>Dashboard, Posts, Templates</li><li>Brand and niche settings</li><li>Instagram connection UI</li></ul></div>
+            <div class="arrow">→</div>
+            <div class="node"><strong>FastAPI API</strong><ul><li>JWT-authenticated REST API</li><li>Pydantic request validation</li><li>Per-user authorization</li><li>Background job status</li></ul></div>
+            <div class="arrow">→</div>
+            <div class="node"><strong>Generation engine</strong><ul><li>LLM + image provider routing</li><li>Structured JSON extraction</li><li>Pillow / ffmpeg rendering</li><li>Concurrency + memory guard</li></ul></div>
+            <div class="arrow">→</div>
+            <div class="node"><strong>Data & integrations</strong><ul><li>PostgreSQL or local SQLite</li><li>Cloudinary media storage</li><li>Google OAuth + JWT</li><li>Instagram Graph API</li></ul></div>
+          </div>
+        </div>
+        <div class="facts" style="margin-top:15px">
+          <div class="card fact"><b>Frontend</b><span>React 18, React Router, Vite, Tailwind CSS</span></div>
+          <div class="card fact"><b>Backend</b><span>Python, FastAPI, Pydantic, httpx, JWT</span></div>
+          <div class="card fact"><b>Media</b><span>Pillow, NumPy, ffmpeg, Edge TTS, Cloudinary</span></div>
+          <div class="card fact"><b>Delivery</b><span>Docker, Vercel SPA setup, Render-ready API</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-pipeline" class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">AI implementation</div><h2>What actually happens when someone clicks “Generate”</h2><p>This is the strongest technical story for positioning the project as real AI engineering rather than a simple API wrapper.</p></div>
+        <div class="pipeline">
+          <article class="pipeline-item"><h3>Pick context</h3><p>The app selects a user-defined category and template, or uses weighted content pillars. The user can also provide an exact theme.</p></article>
+          <article class="pipeline-item"><h3>Build a structured brief</h3><p>Brand voice, niche, visual style, accent color, category, and theme are passed to an LLM prompt so the output stays relevant to the user’s account.</p></article>
+          <article class="pipeline-item"><h3>Validate generated content</h3><p>For infographic and Reel formats, the app asks for JSON, extracts it defensively, and falls back to deterministic content if the provider fails or returns incomplete data.</p></article>
+          <article class="pipeline-item"><h3>Render the media</h3><p>Pillow composes image templates; the Reel pipeline uses generated scripts, Edge TTS narration, word timings, ffmpeg transitions, captions, and music.</p></article>
+          <article class="pipeline-item"><h3>Review and publish</h3><p>A background job saves the pending asset. The user reviews it in the dashboard, then can approve it for a manual or automated official Instagram publish.</p></article>
+        </div>
+        <div class="decision-grid" style="margin-top:15px">
+          <article class="card decision"><h3>Provider resilience</h3><p>The app can route between Gemini, Anthropic, OpenAI, and Cloudflare Workers AI, with template or generated-placeholder fallback paths. This helps the product remain useful when a key is missing, a provider fails, or an API response is malformed.</p></article>
+          <article class="card decision"><h3>Reliable output over “pure AI”</h3><p>AI produces the ideas and structured content, while deterministic templates create readable branded assets. That division avoids depending on image models to render accurate text inside every social graphic.</p></article>
+          <article class="card decision"><h3>Safe resource usage</h3><p>Generation runs in background threads behind a configurable semaphore. Video rendering checks available memory and can degrade to an image post instead of crashing a small deployment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interview" class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">Interview practice</div><h2>Questions you are likely to get</h2><p>Keep answers conversational. Start with the bold first sentence, then go deeper only if the interviewer is interested.</p></div>
+        <div class="split">
+          <article class="card interview-card"><p class="question">Why did you use a multi-provider AI design?</p><p><b>To make content generation dependable instead of coupling the product to one vendor.</b> Different providers can be selected by configuration, and the app includes fallback content or placeholders. This gives a smoother user experience during an outage or when a developer is working without paid API keys.</p></article>
+          <article class="card interview-card"><p class="question">How do you avoid bad LLM output breaking the UI?</p><p><b>I treat LLM output as untrusted input.</b> The backend prompts for strict JSON where structure matters, extracts and sanitizes it, limits list lengths, and checks that required fields exist. If validation fails, it falls back rather than sending malformed data to the renderer.</p></article>
+          <article class="card interview-card"><p class="question">Why is generation asynchronous?</p><p><b>Media creation is expensive and should not make a web request time out.</b> Image and especially video rendering can use substantial CPU and memory, so the API creates a job, processes it in the background, and lets the frontend poll job state while the user continues working.</p></article>
+          <article class="card interview-card"><p class="question">How did you protect user data?</p><p><b>Every API path is authenticated and data queries are scoped to the current user.</b> The backend uses Google sign-in and JWTs, stores Instagram secrets and tokens encrypted at rest, validates OAuth state, and disables unsafe development settings in production.</p></article>
+          <article class="card interview-card"><p class="question">What was the hardest engineering trade-off?</p><p><b>Making automated visuals reliable while retaining the creative benefit of AI.</b> I used LLMs for ideas, captions, scripts, and structured copy, then rendered text-heavy graphics with code-driven templates. This makes typography and branding consistent while still letting AI drive the content.</p></article>
+          <article class="card interview-card"><p class="question">What would you improve next?</p><p><b>I would move in-process jobs to a durable queue such as Celery or RQ with Redis, add automated tests and observability around providers, and use object storage plus signed URLs.</b> I would also add a content calendar, analytics feedback loop, and stronger moderation before automated publishing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">Technical decisions</div><h2>Details that demonstrate engineering depth</h2></div>
+        <div class="stack-grid">
+          <article class="card stack"><h3>Data portability</h3><p>The data layer supports local <code>SQLite</code> for simple development and <code>PostgreSQL</code> through psycopg for deployment. It also stores user accounts, posts, settings, niche presets, automation state, and Instagram connection state.</p></article>
+          <article class="card stack"><h3>Correct publishing architecture</h3><p>Instagram needs a publicly accessible media URL. The project supports <code>Cloudinary</code> storage so generated media survives redeploys and can be fetched by Meta when publishing.</p></article>
+          <article class="card stack"><h3>Production safeguards</h3><p>The app validates production configuration at startup, rate-limits generation, serializes memory-heavy work, verifies Instagram token freshness, and uses an externally triggerable cron endpoint for hosts that sleep.</p></article>
+          <article class="card stack"><h3>Custom content system</h3><p>It is not limited to one template: the project has post and Reel registries, niche presets, weighted categories, editable brand settings, generated preview assets, and multiple creative layouts.</p></article>
+          <article class="card stack"><h3>Video composition</h3><p>The Reel pipeline generates narration with <code>Edge TTS</code>, tracks word timestamps, draws caption overlays with Pillow, and assembles the final vertical video through <code>ffmpeg</code>.</p></article>
+          <article class="card stack"><h3>Deployment separation</h3><p>The frontend is a static Vite build designed for Vercel, while the FastAPI service has a Dockerfile with ffmpeg installed. This separates UI delivery from the server-side media workload.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" class="section">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">CV-ready content</div><h2>Project entry and skill keywords</h2><p>These statements match the implementation in this repository. Choose two or three bullets to keep the CV compact.</p></div>
+        <article class="card resume">
+          <div class="resume-title"><b>PostPilot - AI-Powered Instagram Content Automation Platform</b><span>Python, FastAPI, React, Generative AI, PostgreSQL</span></div>
+          <ul>
+            <li>Built a multi-tenant AI content automation platform using <b>React, FastAPI, PostgreSQL/SQLite, and Docker</b> that generates branded Instagram posts, captions, hashtags, and short-form Reels from a user’s niche and topic.</li>
+            <li>Integrated configurable <b>LLM and image-generation providers</b> (Gemini, Claude, OpenAI, and Cloudflare Workers AI) with structured JSON handling and fallback strategies for dependable content generation.</li>
+            <li>Developed a custom media pipeline with <b>Pillow, ffmpeg, Edge TTS, and Cloudinary</b> to render branded templates, narrated Reels, word-timed captions, and publish-ready public media URLs.</li>
+            <li>Implemented <b>Google OAuth, JWT authentication, per-user authorization, encrypted Instagram tokens, background jobs, rate limiting, and official Instagram API publishing</b> for a secure review-to-publish workflow.</li>
+          </ul>
+        </article>
+        <div class="card" style="margin-top:15px">
+          <div class="keyword-group"><h3>Recommended Skills section update</h3><p><b>Languages:</b> Python, JavaScript, Java, TypeScript, SQL</p><p><b>AI & Backend:</b> Generative AI, LLM Integration, Prompt Engineering, Structured Output, FastAPI, REST APIs, Pydantic, JWT, OAuth 2.0, Background Jobs</p><p><b>Frontend:</b> React.js, Vite, Tailwind CSS, React Router</p><p><b>Databases & Cloud:</b> PostgreSQL, SQLite, Redis, Cloudinary, Docker, Vercel, Render</p><p><b>Media & Tools:</b> Pillow, ffmpeg, Edge TTS, Git, GitHub, Postman, API Testing</p></div>
+          <div class="keyword-group"><h3>Small interview reminder</h3><p>Say <b>“implemented”</b> only for features present in the code, and be explicit that providers are <b>configurable integrations</b>. If asked for scale or production metrics, describe them only if you personally measured them.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell">PostPilot interview guide - generated from the current repository implementation. Use it as a speaking outline, not a script to memorize word-for-word.</div></footer>
+</body>
+</html>
